@@ -116,7 +116,7 @@ if you haven't followed along during last session, those are the steps to take t
 6. in the `constructor` of the module, add the following line:
    ```
    constructor() {
-       firestore.setLogLevel('info');
+       firebase.setLogLevel('info');
    }
    ```
 
