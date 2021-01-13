@@ -4,8 +4,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '@env';
-import { AuthService } from './services/auth.service';
-import { UserService } from './services/user.service';
+import firebase from 'firebase/app';
 
 const modules = [AngularFireAuthModule, AngularFirestoreModule];
 
@@ -13,6 +12,10 @@ const modules = [AngularFireAuthModule, AngularFirestoreModule];
   declarations: [],
   imports: [CommonModule, ...modules, AngularFireModule.initializeApp(environment.firebaseConfig)],
   exports: [...modules],
-  providers: [AngularFirestore, AuthService, UserService],
+  providers: [AngularFirestore],
 })
-export class CoreModule {}
+export class CoreModule {
+  constructor() {
+    firebase.setLogLevel('info');
+  }
+}

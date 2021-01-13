@@ -1,0 +1,10 @@
+<ng-container *ngIf="user$ | async as user; else notSignedIn">
+  <h2>You are logged in as: {{ user.name | titlecase }}</h2>
+  <pre>{{ user | json }}</pre>
+</ng-container>
+<ng-template #notSignedIn>
+  <h2>You are not signed in yet</h2>
+</ng-template>
+
+<button (click)="signup()">login with Google</button>
+<button (click)="signout()">Log out</button>
