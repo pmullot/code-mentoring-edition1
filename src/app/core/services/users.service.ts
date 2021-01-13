@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from '@core/models/user.model';
 import { environment } from '@env';
-import firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 
 const USER_COL = environment.collections.users;
@@ -34,16 +33,4 @@ export class UsersService {
       .collection<User>(USER_COL, (ref) => ref.where('name', '==', name))
       .valueChanges();
   }
-}
-
-export function createUserFromFirebaseUser(FBUser: firebase.User): User {
-  const user: User = {
-    id: FBUser.uid,
-    name: FBUser.displayName,
-    photoURL: FBUser.photoURL,
-    email: FBUser?.email?.toLowerCase(),
-    venuesOwned: [],
-    createdTime: new Date(),
-  };
-  return user;
 }
