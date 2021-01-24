@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   {
@@ -7,14 +8,23 @@ const routes: Routes = [
     loadChildren: () => import('./sections/auth/auth.module').then((m) => m.AuthModule),
   },
   {
+    path: 'user',
+    loadChildren: () => import('./sections/user/user.module').then((m) => m.UserModule),
+  },
+  {
+    path: '',
+    component: LandingPageComponent,
+    pathMatch: 'full',
+  },
+  {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: '',
     pathMatch: 'full',
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: false })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

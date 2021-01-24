@@ -6,4 +6,8 @@ export interface User extends Base {
   name: string;
   photoURL?: string;
   venuesOwned: Partial<Venue>[];
+  address?: string;
+  zipCode?: string;
+  city?: string;
+  country?: string;
 }
