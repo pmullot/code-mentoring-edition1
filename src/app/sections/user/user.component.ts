@@ -31,7 +31,7 @@ export class UserComponent {
   protected buildForm(): void {
     this.userForm = this._fb.group({
       name: [null, Validators.required],
-      email: [{ value: null, disabled: true }, Validators.required],
+      email: [null, Validators.required],
       photoURL: null,
       zipCode: null,
       city: null,
@@ -45,5 +45,6 @@ export class UserComponent {
     if (this.userForm.dirty && this.userForm.valid) {
       await this._userService.saveUser(this.userForm.value);
     }
+    console.log(this.userForm.value)
   }
 }
