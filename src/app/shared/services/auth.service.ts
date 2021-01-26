@@ -29,6 +29,7 @@ export class AuthService {
                 if (!DBUser) {
                   const user = createUserFromFirebaseUser(FBUser);
                   this.user$.next(user);
+                  // I expect the code below to redirect me to the /user route after the user is created, but it does not do so
                   return this._router.navigate(['user']);
                 } else {
                   this.user$.next(DBUser);
