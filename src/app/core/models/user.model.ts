@@ -6,8 +6,10 @@ export interface User extends Base {
   name: string;
   photoURL?: string;
   venuesOwned: Partial<Venue>[];
+  // Additional fields for the User model to accomodate extension of the profile
   address?: string;
   zipCode?: string;
   city?: string;
   country?: string;
 }
+
