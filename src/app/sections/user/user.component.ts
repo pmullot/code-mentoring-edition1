@@ -18,8 +18,8 @@ export class UserComponent {
     // Step 2: Retrieve and subscribe to the user information for authenticated user
     this._authService.user$
       .pipe(
-        filter((user) => !!user),
-        take(1)
+        filter((user) => !!user), // !! makes sure user is true
+        take(1) // Snapshot - as soon as I get user value, only take one and the unsubscribe
       )
       .subscribe((user) => {
         // Step 3: Fill the form with any of the user values that are there in the autheticated user
@@ -31,7 +31,7 @@ export class UserComponent {
   protected buildForm(): void {
     this.userForm = this._fb.group({
       name: [null, Validators.required],
-      email: [null, Validators.required],
+      email: [{ value: null, disabled: true }, Validators.required],
       photoURL: null,
       zipCode: null,
       city: null,
@@ -43,8 +43,7 @@ export class UserComponent {
   // Used on the onClick handler in the form to submit the values in the form to the database
   public async onSubmit(): Promise<void> {
     if (this.userForm.dirty && this.userForm.valid) {
-      await this._userService.saveUser(this.userForm.value);
+      await this._userService.saveUser(this.userForm.getRawValue());
     }
-    console.log(this.userForm.value)
   }
 }

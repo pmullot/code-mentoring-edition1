@@ -20,5 +20,5 @@
 
   <label for="country">Country</label>
   <input type="text" id="country" formControlName="country" />
-  <button type="button" (click)="onSubmit()">Save</button>
+  <button type="button" (click)="onSubmit()" [disabled]="userForm.pristine || userForm.invalid">Save</button>
 </form>
