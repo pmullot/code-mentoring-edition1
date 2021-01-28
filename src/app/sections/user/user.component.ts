@@ -38,7 +38,7 @@ export class UserComponent {
 
   public async onSubmit(): Promise<void> {
     if (this.userForm.dirty && this.userForm.valid) {
-      await this._userService.saveUser(this.userForm.value);
+      await this._userService.saveUser(this.userForm.getRawValue());
     }
   }
 }
