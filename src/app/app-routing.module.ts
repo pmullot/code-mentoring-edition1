@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./sections/user/user.module').then((m) => m.UserModule),
   },
   {
+    path: 'home',
+    loadChildren: () => import('./sections/home/home.module').then((m) => m.HomeModule),
+  },
+  {
     path: '',
     component: LandingPageComponent,
     pathMatch: 'full',

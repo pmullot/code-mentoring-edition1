@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { User } from '@core/models/user.model';
 import firebase from 'firebase/app';
 import { BehaviorSubject, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { createUserFromFirebaseUser, UsersService } from './users.service';
 
 @Injectable({
@@ -25,14 +25,14 @@ export class AuthService {
         switchMap((FBUser: firebase.User) => {
           if (FBUser) {
             return this._usersService.getUserByEmail$(FBUser.email).pipe(
-              switchMap((DBUser: User) => {
+              tap((DBUser: User) => {
                 if (!DBUser) {
                   const user = createUserFromFirebaseUser(FBUser);
                   this.user$.next(user);
-                  return this._router.navigate(['user']);
+                  this._router.navigate(['user']);
                 } else {
                   this.user$.next(DBUser);
-                  return of(DBUser);
+                  this._router.navigate(['home']);
                 }
               })
             );

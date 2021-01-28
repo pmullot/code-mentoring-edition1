@@ -17,7 +17,7 @@ export class UserComponent {
     this._authService.user$
       .pipe(
         filter((user) => !!user),
-        take(1)
+        take(10)
       )
       .subscribe((user) => {
         this.userForm.patchValue(user);
