@@ -3,8 +3,8 @@
 1. Moved the AuthService & User Service back to core module. In sharedModule they weren't singletons. --> Explore that
 2. changes in AuthService to not overwrite the User value (switchMap --> tap)
 3. new Home module + component to service the Home Page
-4. new Venues module + services & component skeleton
-5. changes to the user routing module + new Venue Component in the user Module
+4. new Venues module & services
+5. changes to the user routing module + new Venue Component in the user Module to manage the user Venues
 
 # Preparing the environment
 
