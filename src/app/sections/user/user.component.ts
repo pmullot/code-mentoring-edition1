@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Venue } from '@core/models/venue.model';
 import { AuthService } from '@shared/services/auth.service';
 import { UsersService } from '@shared/services/users.service';
 import { filter, take } from 'rxjs/operators';
@@ -11,6 +12,7 @@ import { filter, take } from 'rxjs/operators';
 })
 export class UserComponent {
   public userForm: FormGroup;
+  public userVenues: Partial<Venue>[];
 
   constructor(protected _fb: FormBuilder, protected _authService: AuthService, protected _userService: UsersService) {
     this.buildForm();
@@ -20,6 +22,7 @@ export class UserComponent {
         take(10)
       )
       .subscribe((user) => {
+        this.userVenues = user.venuesOwned;
         this.userForm.patchValue(user);
       });
   }

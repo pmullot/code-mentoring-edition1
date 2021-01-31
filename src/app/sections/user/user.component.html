@@ -24,4 +24,12 @@
 </form>
 
 <br />
+<h3>Those are your venues:</h3>
+<ul>
+  <li *ngFor="let venue of userVenues">
+    <span
+      ><b>{{ venue.name }}</b> ({{ venue.zipCode }})</span
+    >
+  </li>
+</ul>
 <a [routerLink]="['venues']">Go to your Venues</a>

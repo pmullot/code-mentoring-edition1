@@ -32,7 +32,7 @@ export class AuthService {
                   this._router.navigate(['user']);
                 } else {
                   this.user$.next(DBUser);
-                  this._router.navigate(['home']);
+                  this._router.navigate([this._router.url || 'home']);
                 }
               })
             );
