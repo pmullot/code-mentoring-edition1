@@ -18,8 +18,8 @@ export class UserComponent {
     // Step 2: Retrieve and subscribe to the user information for authenticated user
     this._authService.user$
       .pipe(
-        filter((user) => !!user), // !! makes sure user is true
-        take(1) // Snapshot - as soon as I get user value, only take one and the unsubscribe
+        filter((user) => !!user),
+        take(10)
       )
       .subscribe((user) => {
         // Step 3: Fill the form with any of the user values that are there in the autheticated user
