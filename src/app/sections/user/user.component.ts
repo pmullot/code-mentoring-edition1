@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Adds functionality for working with forms
 import { AuthService } from '@shared/services/auth.service';
 import { UsersService } from '@shared/services/users.service';
+import { VenuesService } from '@sections/venues/services/venues.service';
+import { Venue } from '@core/models/venue.model';
 import { filter, take } from 'rxjs/operators';
 
 @Component({
@@ -11,8 +13,10 @@ import { filter, take } from 'rxjs/operators';
 })
 export class UserComponent {
   public userForm: FormGroup;
+  public userVenues: Venue[]
 
-  constructor(protected _fb: FormBuilder, protected _authService: AuthService, protected _userService: UsersService) {
+  constructor(protected _fb: FormBuilder, protected _authService: AuthService, protected _userService: UsersService, protected _venueService: VenuesService) {
+    this.userVenues = this._venueService.getVenues()
     // Step 1: Build the form
     this.buildForm();
     // Step 2: Retrieve and subscribe to the user information for authenticated user

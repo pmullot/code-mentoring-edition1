@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VenuesService } from '@sections/venues/services/venues.service';
+import { Venue } from '@core/models/venue.model';
 
 @Component({
   selector: 'app-user-venues-manager',
@@ -7,5 +8,10 @@ import { VenuesService } from '@sections/venues/services/venues.service';
   styleUrls: ['./user-venues-manager.component.scss'],
 })
 export class UserVenuesManagerComponent {
-  constructor(protected _venueService: VenuesService) {}
+  public userVenues: Venue[]
+
+  constructor(protected _venueService: VenuesService) {
+    this.userVenues = this._venueService.getVenues()
+
+  }
 }

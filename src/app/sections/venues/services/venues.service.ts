@@ -15,7 +15,7 @@ export class VenuesService {
   public venues$: BehaviorSubject<Venue[]> = new BehaviorSubject(null);
   constructor(protected _afs: AngularFirestore, protected _authService: AuthService) {
     this._afs
-      .collection<Venue>(VENUE_COL, (ref) => ref.where('owner', '==', _authService.getUser().email))
+      .collection<Venue>(VENUE_COL, (ref) => ref.where('owner', '==', 'tzlukoma@gmail.com'))
       .valueChanges().subscribe((venues: Venue[]) => {
         this.venues$.next(venues)
       })
@@ -38,6 +38,13 @@ export class VenuesService {
       .collection(VENUE_COL)
       .doc().set(venue, { merge: true })
       .then((_) => venue)
+  }
+
+
+  getVenues(): Venue[] {
+    // TODO: Figure out how to abstract getVenues instead of calling venues$
+    // directly from the user-venues-manager.component.ts
+    return this.venues$.getValue()
   }
 
 
