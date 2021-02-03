@@ -1,5 +1,4 @@
-import { typeWithParameters } from '@angular/compiler/src/render3/util';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Venue } from '@core/models/venue.model';
 import { VenuesService } from '@sections/venues/services/venues.service';
@@ -50,8 +49,8 @@ export class UserVenuesManagerComponent {
     this.venueForm.patchValue(venue);
   }
 
-  public saveVenue(): Promise<Venue> {
-    return this._venueService.saveVenueForUser(this.venueForm.getRawValue());
+  public saveVenue(): void {
+    this._venueService.saveVenueForUser(this.venueForm.getRawValue()).then(this.createVenueForm.bind(this));
   }
 
   public deleteVenue(venue: Venue): Promise<void> {
