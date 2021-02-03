@@ -6,3 +6,8 @@
   justify-content: center;
   gap: 0.5em;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}

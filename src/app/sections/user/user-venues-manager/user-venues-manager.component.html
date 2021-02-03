@@ -2,3 +2,14 @@
 <ul>
   <li *ngFor="let venue of userVenues"> {{venue.name}}</li>
 </ul>
+
+<h3>Add a new venue</h3>
+<form [formGroup]="venueForm">
+  <label for="name">Name</label>
+  <input type="text" id="name" formControlName="name" />
+
+  <label for="photo">Zip Code</label>
+  <input type="text" id="zipCode" formControlName="zipCode" />
+
+  <button type="button" (click)="onSubmit()" [disabled]="venueForm.pristine || venueForm.invalid">Add Venue</button>
+</form>
