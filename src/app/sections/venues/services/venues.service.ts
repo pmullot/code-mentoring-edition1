@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Venue } from '@core/models/venue.model';
-import { environment } from '@env';
+import { environment } from '../../../../environments/environment';
 import { AuthService } from '@shared/services/auth.service';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';

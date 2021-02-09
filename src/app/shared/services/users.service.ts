@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from '@core/models/user.model';
-import { environment } from '@env';
+import { environment } from '../../../environments/environment';
 import firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 
