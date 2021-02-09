@@ -1,0 +1,75 @@
+:host {
+  width: 100vw;
+  height: 100vh;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  align-content: center;
+  background-image: url('../../assets/images/pexels-ketut-subiyanto-4473090.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    '. . .'
+    '. card .'
+    '. . .';
+}
+
+.card {
+  grid-area: card;
+  width: 100%;
+  height: 100%;
+}
+.card-background {
+  border-radius: 8px;
+  width: 33.33%;
+  height: 33.33%;
+  background-color: white;
+  opacity: 0.6;
+  position: absolute;
+  z-index: -1;
+}
+
+.card-content {
+  z-index: 0;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.title {
+}
+
+.app-name {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.btn {
+  background-color: rgb(183, 0, 255);
+  padding: 0.7em;
+  border-radius: 50px;
+  border: #cb90e2 3px solid;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}

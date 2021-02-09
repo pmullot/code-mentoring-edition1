@@ -1,0 +1,53 @@
+:host {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  gap: 0.5em;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+}
+
+.side-nav {
+  background-color: #eeeeee;
+  border-right: 1px solid black;
+  height: 100%;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3.17em 2em 1fr;
+  gap: 1em;
+
+  li {
+    margin-bottom: 1em;
+    a {
+      margin-left: 1em;
+      background-color: chocolate;
+      color: white;
+      cursor: pointer;
+      padding: 0.3em;
+      border-radius: 5px;
+    }
+  }
+}
+
+.edit-panel {
+  height: 100%;
+  padding: 1em;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-row {
+    margin-bottom: 1rem;
+    input {
+      margin-left: 0.5em;
+      width: 300px;
+    }
+  }
+}

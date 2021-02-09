@@ -1,0 +1,28 @@
+<nav class="side-nav">
+  <h3>Your venues:</h3>
+  <button (click)="addNewVenue()">Add a New Venue</button>
+  <ng-container *ngIf="userVenues$ | async as userVenues">
+    <ul *ngIf="!!userVenues && userVenues.length > 0">
+      <li *ngFor="let userVenue of userVenues">
+        <button (click)="deleteVenue(userVenue)">Delete</button>
+        <a class="venue-name" (click)="createVenueForm(userVenue)">{{ userVenue.name }}</a>
+      </li>
+    </ul>
+
+    <h4 *ngIf="userVenues?.length === 0">No venues to display</h4>
+  </ng-container>
+</nav>
+
+<div class="edit-panel" *ngIf="venueForm">
+  <form novalidate [formGroup]="venueForm">
+    <span class="input-row">
+      <label>Name:</label>
+      <input type="text" formControlName="name" />
+    </span>
+    <span class="input-row">
+      <label>Zip Code:</label>
+      <input type="text" formControlName="zipCode" />
+    </span>
+    <button (click)="saveVenue()" [disabled]="venueForm.invalid || venueForm.pristine">Save Venue</button>
+  </form>
+</div>

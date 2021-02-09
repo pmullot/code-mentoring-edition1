@@ -1,0 +1,35 @@
+<h3>Tell us more about you!</h3>
+<form [formGroup]="userForm">
+  <label for="name">Name</label>
+  <input type="text" id="name" formControlName="name" />
+
+  <label for="name">Email</label>
+  <input type="email" id="edmail" formControlName="email" />
+
+  <label for="photo">Photo Url</label>
+  <input type="text" id="photo" formControlName="photoURL" />
+
+  <label for="address">Address</label>
+  <input type="text" id="address" formControlName="address" />
+
+  <label for="zipCode">zip Code</label>
+  <input type="text" id="zipCode" formControlName="zipCode" />
+
+  <label for="city">City</label>
+  <input type="text" id="city" formControlName="city" />
+
+  <label for="country">Country</label>
+  <input type="text" id="country" formControlName="country" />
+  <button type="button" (click)="onSubmit()">Save</button>
+</form>
+
+<br />
+<h3>Those are your venues:</h3>
+<ul>
+  <li *ngFor="let venue of userVenues">
+    <span
+      ><b>{{ venue.name }}</b> ({{ venue.zipCode }})</span
+    >
+  </li>
+</ul>
+<a [routerLink]="['venues']">Go to your Venues</a>

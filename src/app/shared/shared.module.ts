@@ -2,18 +2,19 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { CoreModule } from '@core/core.module';
-import { AuthService } from './services/auth.service';
-import { UsersService } from './services/users.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { VenuesService } from '@sections/venues/services/venues.service';
+import { VenuesModule } from '@sections/venues/venues.module';
 
-const modules = [CoreModule];
+const modules = [ReactiveFormsModule, VenuesModule];
 const declarations: [] = [];
+const providers = [AngularFireAuth, AngularFirestore, VenuesService];
 
 @NgModule({
   declarations: [...declarations],
   imports: [CommonModule, ...modules],
   exports: [...modules, ...declarations],
   entryComponents: [],
-  providers: [AngularFireAuth, AngularFirestore, UsersService, AuthService],
+  providers: providers,
 })
 export class SharedModule {}
