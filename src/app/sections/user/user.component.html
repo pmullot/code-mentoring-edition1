@@ -20,7 +20,9 @@
 
   <label for="country">Country</label>
   <input type="text" id="country" formControlName="country" />
-  <button type="button" (click)="onSubmit()">Save</button>
+  <button type="button" (click)="onSubmit()"
+  [disabled] = "this.userForm.pristine"
+  >Save</button>
 </form>
 
 <br />
