@@ -12,18 +12,18 @@ import { filter, take } from 'rxjs/operators';
 })
 export class UserComponent {
   public userForm: FormGroup;
-  public userVenues: Partial<Venue>[];
 
   constructor(protected _fb: FormBuilder, protected _authService: AuthService, protected _userService: UsersService) {
     this.buildForm();
+    console.log('form is built')
     this._authService.user$
       .pipe(
         filter((user) => !!user),
         take(10)
       )
       .subscribe((user) => {
-        this.userVenues = user.venuesOwned;
-        this.userForm.patchValue(user);
+        this.userForm.patchValue(user); // This line for some reason doesn't get executed, resulting in empty fields in the user form, only solution is to reload 
+        console.log('the subscribe thing ')
       });
   }
 
@@ -43,6 +43,7 @@ export class UserComponent {
     if (this.userForm.valid) {
       await this._userService.saveUser(this.userForm.getRawValue());
       this.userForm.reset();
+      // Here the user will get redirected to the "add new venue wizard"
     }
   }
 }

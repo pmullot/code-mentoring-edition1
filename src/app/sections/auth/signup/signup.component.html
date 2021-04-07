@@ -1,14 +1,13 @@
 <ng-container *ngIf="user$ | async as user; else notSignedIn">
   <h2>You are logged in as: {{ user.name | titlecase }}</h2>
   <pre>{{ user | json }}</pre>
+  <button (click)="signout()">Log out</button>
+  <a [routerLink]="['/user']" routerLinkActive="router-link-active">Go to the user page</a> 
+  <h5>This will later on redirect to the home page of already existing users if the user is not new</h5>
 </ng-container>
+
 <ng-template #notSignedIn>
   <h2>You are not signed in yet</h2>
+  <button (click)="signup()">login with Google</button>
 </ng-template>
-
-<br />
-
-<a [routerLink]="['/user']" routerLinkActive="router-link-active">Go to the user page</a>
-<br /><br />
-<button (click)="signup()">login with Google</button>
-<button (click)="signout()">Log out</button>
+<br>

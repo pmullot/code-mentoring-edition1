@@ -6,15 +6,15 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./sections/auth/auth.module').then((m) => m.AuthModule), // no red lines here, still might not be working
+    loadChildren: () => import('./sections/auth/auth.module').then((m) => m.AuthModule), 
   },
   {
     path: 'user',
-    loadChildren: () => import('./sections/user/user.module').then((m) => m.UserModule), // red line here inside "import"
+    loadChildren: () => import('./sections/user/user.module').then((m) => m.UserModule), 
   },
   {
     path: 'home',
-    loadChildren: () => import('./sections/home/home.module').then((m) => m.HomeModule), // no red lines here, still might not be working
+    loadChildren: () => import('./sections/home/home.module').then((m) => m.HomeModule), 
   },
   {
     path: '',

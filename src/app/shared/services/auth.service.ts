@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { User } from '@core/models/user.model';
 import firebase from 'firebase/app';
 import { BehaviorSubject, of } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { createUserFromFirebaseUser, UsersService } from './users.service';
 
 @Injectable({
