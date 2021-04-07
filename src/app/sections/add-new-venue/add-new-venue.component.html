@@ -1,0 +1,37 @@
+    <nb-stepper orientation="horizontal" disableStepNavigation>
+      <nb-step [label]="labelOne">
+        <ng-template #labelOne>Informational</ng-template>
+        <h4>Informational</h4>
+        <p class="lorem">
+          By adding a venue you will be able to track visitors and meet your COVID reporting requirements
+        </p>
+        <button class="prev-button" nbButton disabled nbStepperNext>Previous</button>
+        <button class="next-button" nbButton nbStepperNext>Next</button>
+      </nb-step>
+      <nb-step [label]="labelTwo">
+        <ng-template #labelTwo>Name</ng-template>
+        <h4>Name</h4> 
+        <p class="lorem">
+          HERE GOES THE GOOGLE API MAP INPUT THING
+        </p>
+        <button class="prev-button" nbButton nbStepperPrevious>Previous</button>
+        <button class="next-button" nbButton nbStepperNext>Next</button>
+      </nb-step>
+      <nb-step label="Adress">
+        <h4>Adress</h4>
+        <p class="lorem">
+          HERE THERE WILL BE 2 INPUT FIELDS WHERE THE USER TYPES AND GOOGLE API SUGGESTIONS POP UP 
+        </p>
+        <button class="prev-button" nbButton nbStepperPrevious>Previous</button>
+        <button class="next-button" nbButton nbStepperNext>Next</button>
+      </nb-step>
+      <nb-step [label]="labelFour">
+        <ng-template #labelFour>Hours</ng-template>
+        <h4>Hours</h4>
+        <p class="lorem">
+          HERE GOES A BOARD WHERE THE USER CAN INPUT THE HOURS
+        </p>
+        <button class="prev-button" nbButton nbStepperPrevious>Previous</button>
+        <button class="next-button" nbButton disabled nbStepperNext>Next</button>
+      </nb-step>
+    </nb-stepper>

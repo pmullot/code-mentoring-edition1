@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Venue } from '@core/models/venue.model';
+import { AddNewVenueComponent } from '@sections/add-new-venue/add-new-venue.component';
 import { AuthService } from '@shared/services/auth.service';
 import { UsersService } from '@shared/services/users.service';
 import { filter, take } from 'rxjs/operators';
@@ -13,9 +15,8 @@ import { filter, take } from 'rxjs/operators';
 export class UserComponent {
   public userForm: FormGroup;
 
-  constructor(protected _fb: FormBuilder, protected _authService: AuthService, protected _userService: UsersService) {
+  constructor(protected _fb: FormBuilder, protected _authService: AuthService, protected _userService: UsersService, protected _router: Router) {
     this.buildForm();
-    console.log('form is built')
     this._authService.user$
       .pipe(
         filter((user) => !!user),
@@ -23,7 +24,6 @@ export class UserComponent {
       )
       .subscribe((user) => {
         this.userForm.patchValue(user); // This line for some reason doesn't get executed, resulting in empty fields in the user form, only solution is to reload 
-        console.log('the subscribe thing ')
       });
   }
 
@@ -42,8 +42,7 @@ export class UserComponent {
   public async onSubmit(): Promise<void> {
     if (this.userForm.valid) {
       await this._userService.saveUser(this.userForm.getRawValue());
-      this.userForm.reset();
-      // Here the user will get redirected to the "add new venue wizard"
+      this._router.navigate(['user/searchForOrAddAVenue']);
     }
   }
 }

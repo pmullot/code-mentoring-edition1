@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
- // import { UserModule } from './sections/user/user.module';  idk why this doesn't import the module
+
 
 const routes: Routes = [
   {
