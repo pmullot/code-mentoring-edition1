@@ -28,10 +28,13 @@
       <nb-step [label]="labelFour">
         <ng-template #labelFour>Hours</ng-template>
         <h4>Hours</h4>
-        <p class="lorem">
-          HERE GOES A BOARD WHERE THE USER CAN INPUT THE HOURS
-        </p>
+
+        <input [formControl]="openingHours" [nbTimepicker]="timepicker" required>
+        <nb-timepicker #timepicker></nb-timepicker>
+        <pre>For Debugging: {{ openingHours.valueChanges | async | json }}</pre>
+
         <button class="prev-button" nbButton nbStepperPrevious>Previous</button>
         <button class="next-button" nbButton disabled nbStepperNext>Next</button>
+        
       </nb-step>
     </nb-stepper>

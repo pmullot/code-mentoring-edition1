@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Venue } from '@core/models/venue.model';
-import { AddNewVenueComponent } from '@sections/add-new-venue/add-new-venue.component';
 import { AuthService } from '@shared/services/auth.service';
 import { UsersService } from '@shared/services/users.service';
 import { filter, take } from 'rxjs/operators';

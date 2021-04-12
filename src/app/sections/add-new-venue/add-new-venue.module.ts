@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbStepperModule } from '@nebular/theme';
+import { NbStepperModule, NbTimepickerModule } from '@nebular/theme';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -8,7 +9,15 @@ import { NbStepperModule } from '@nebular/theme';
   declarations: [],
   imports: [
     CommonModule,
-    NbStepperModule
+    NbStepperModule,
+    NbTimepickerModule,
+    FormBuilder,
+    FormGroup,
+    Validators
   ]
 })
-export class AddNewVenueModule { }
+export class AddNewVenueModule {
+  
+
+  
+ }
