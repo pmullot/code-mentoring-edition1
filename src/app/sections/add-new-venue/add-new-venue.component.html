@@ -11,17 +11,30 @@
       <nb-step [label]="labelTwo">
         <ng-template #labelTwo>Name</ng-template>
         <h4>Name</h4> 
-        <p class="lorem">
-          HERE GOES THE GOOGLE API MAP INPUT THING
-        </p>
+        
+          
         <button class="prev-button" nbButton nbStepperPrevious>Previous</button>
         <button class="next-button" nbButton nbStepperNext>Next</button>
       </nb-step>
       <nb-step label="Adress">
         <h4>Adress</h4>
-        <p class="lorem">
-          HERE THERE WILL BE 2 INPUT FIELDS WHERE THE USER TYPES AND GOOGLE API SUGGESTIONS POP UP 
-        </p>
+        
+        <div class="container">
+          <h1>Find a place</h1>
+        
+          <input type="text" #text />
+          <br />
+          <ul class="result-container">
+            <li *ngFor="let place of places$ | async">
+              <div class="result">
+                <img [src]="place.icon" alt="" />
+                <span class="name">{{ place.name }}</span>
+                <span class="address">({{ place.formatted_address }})</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
         <button class="prev-button" nbButton nbStepperPrevious>Previous</button>
         <button class="next-button" nbButton nbStepperNext>Next</button>
       </nb-step>

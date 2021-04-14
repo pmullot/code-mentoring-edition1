@@ -3,7 +3,9 @@
   <pre>{{ user | json }}</pre>
   <button (click)="signout()">Log out</button>
   <a [routerLink]="['/user']" routerLinkActive="router-link-active">Go to the user page</a> 
-  <h5>This will later on redirect to the home page of already existing users if the user is not new</h5>
+  <h5>This step will be skipped and the user will be redirected to the main screen of the app if he's not logging in
+    for the first time
+  </h5>
 </ng-container>
 
 <ng-template #notSignedIn>

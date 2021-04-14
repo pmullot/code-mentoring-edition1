@@ -11,12 +11,13 @@ import { ReactiveFormsModule } from '@angular/forms'; // Had to import this one 
 
 import { NbThemeModule, NbLayoutModule, NbStepperModule, NbTimepickerModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { GooglePlacesService } from './services/google-places.service';
 
 const nebularImports = [NbThemeModule.forRoot({ name: 'cosmic' }), NbLayoutModule, NbEvaIconsModule, NbStepperModule, NbTimepickerModule.forRoot()]
 @NgModule({
   declarations: [AppComponent, LandingPageComponent, AddNewVenueComponent, SearchForOrAddAVenueComponent],
   imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule, ReactiveFormsModule, ...nebularImports, ],
-  providers: [],
+  providers: [GooglePlacesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
