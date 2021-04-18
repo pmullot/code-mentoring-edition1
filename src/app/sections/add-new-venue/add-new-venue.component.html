@@ -44,7 +44,7 @@
 
         <input [formControl]="openingHours" [nbTimepicker]="timepicker" required>
         <nb-timepicker #timepicker></nb-timepicker>
-        <pre>For Debugging: {{ openingHours.valueChanges | async | json }}</pre>
+        
 
         <button class="prev-button" nbButton nbStepperPrevious>Previous</button>
         <button class="next-button" nbButton disabled nbStepperNext>Next</button>
