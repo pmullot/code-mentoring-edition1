@@ -7,16 +7,17 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddNewVenueComponent } from './sections/add-new-venue/add-new-venue.component';
 import { SearchForOrAddAVenueComponent } from './sections/search-for-or-add-a-venue/search-for-or-add-a-venue.component';
-import { ReactiveFormsModule } from '@angular/forms'; // Had to import this one but we're already using it so idk 
+import { ReactiveFormsModule } from '@angular/forms'; // Had to import this one but we're already using it so idk where/how we import it 
 
-import { NbThemeModule, NbLayoutModule, NbStepperModule, NbTimepickerModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 import { GooglePlacesService } from './services/google-places.service';
 
-const nebularImports = [NbThemeModule.forRoot({ name: 'cosmic' }), NbLayoutModule, NbEvaIconsModule, NbStepperModule, NbTimepickerModule.forRoot()]
 @NgModule({
   declarations: [AppComponent, LandingPageComponent, AddNewVenueComponent, SearchForOrAddAVenueComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule, ReactiveFormsModule, ...nebularImports, ],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule, ReactiveFormsModule, MatStepperModule, MatFormFieldModule, MatInputModule ],
   providers: [GooglePlacesService],
   bootstrap: [AppComponent],
 })

@@ -1,15 +1,5 @@
-import { 
-  Component,
-  ElementRef,
-  ViewChild
- } from '@angular/core';
- import { fromEvent } from 'rxjs';
- import { debounceTime } from 'rxjs/operators';
- import { GooglePlacesService } from '../../services/google-places.service';
-
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { OpeningTime, Venue } from '@core/models/venue.model';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-new-venue',
@@ -17,66 +7,39 @@ import { OpeningTime, Venue } from '@core/models/venue.model';
   styleUrls: ['./add-new-venue.component.scss']
 })
 export class AddNewVenueComponent {
-  @ViewChild('text')
-  text: ElementRef<HTMLInputElement>;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
+  forthFormGroup: FormGroup;
+  fifthFormGroup: FormGroup;
 
-  public places$ = this._placesService.results$.asObservable();
-  public workingHoursForm: FormGroup;
-  openingHours: FormControl;
-  
-  workingHoursMonday: OpeningTime = {
-    weekDay : 1,
-    openAt: new Date('1111-02-32'),
-    closeAt: new Date('1113-02-58')
-  }
-  workingHoursTuesday: OpeningTime = {
-    weekDay : 2,
-    openAt: new Date('1111-02-32'),
-    closeAt: new Date('1113-02-58')
-  }
-  workingHoursWednesday: OpeningTime = {
-    weekDay : 3,
-    openAt: new Date('1111-02-32'),
-    closeAt: new Date('1113-02-58')
-  }
-  workingHoursThursday: OpeningTime = {
-    weekDay : 4,
-    openAt: new Date('1111-02-32'),
-    closeAt: new Date('1113-02-58')
-  }
-  workingHoursFriday: OpeningTime = {
-    weekDay : 5,
-    openAt: new Date('1111-02-32'),
-    closeAt: new Date('1113-02-58')
-  }
-  workingHoursSaturday: OpeningTime = {
-    weekDay : 6,
-    openAt: new Date('1111-02-32'),
-    closeAt: new Date('1113-02-58')
-  }
-  workingHoursSunday: OpeningTime = {
-    weekDay : 7,
-    openAt: new Date('1111-02-32'),
-    closeAt: new Date('1113-02-58')
-  }
+  constructor(private _formBuilder: FormBuilder) {}
 
-  
-  
-  constructor(
-    private _placesService: GooglePlacesService,
-    public _fb: FormBuilder,
-    protected _router: Router
-  ) {}
-
-  ngAfterViewInit(): void {
-    fromEvent(this.text.nativeElement, 'input')
-      .pipe(debounceTime(300))
-      .subscribe((event) => {
-        this.findPlaces(this.text.nativeElement.value);
-      });
-  }
-
-  public findPlaces(value: any): void {
-    this._placesService.getPredictions(value)
+  ngOnInit() {
+    this.secondFormGroup = this._formBuilder.group({
+      venueName: ['', Validators.required]
+    });
+    this.thirdFormGroup = this._formBuilder.group({
+      venueAddress: ['', Validators.required]
+    });
+    this.forthFormGroup = this._formBuilder.group({
+      workingHoursMondayStart:['', Validators.required],
+      workingHoursMondayEnd:['', Validators.required],
+      workingHoursTuesdayStart:['', Validators.required],
+      workingHOursTuesdayEnd:['', Validators.required],
+      workingHoursWednesdayStart:['', Validators.required],
+      workingHoursWednesdayEnd:['', Validators.required],
+      workingHoursThursdayStart:['', Validators.required],
+      workingHoursThursdayEnd:['', Validators.required],
+      workingHoursFridayStart:['', Validators.required],
+      workingHOursFridayEnd:['', Validators.required],
+      workingHoursSaturdayStart:['', Validators.required],
+      workingHoursSaturdayEnd:['', Validators.required],
+      workingHoursSundayStart:['', Validators.required],
+      workingHOursSundayEnd:['', Validators.required],
+    });
+    this.fifthFormGroup = this._formBuilder.group({
+      venueOverview:['', Validators.required]
+    })
   }
 }
