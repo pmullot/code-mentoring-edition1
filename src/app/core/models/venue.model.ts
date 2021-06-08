@@ -6,7 +6,7 @@ export interface OpeningTime {
   closeAt: Date;
 }
 
-export interface ChecksIn {
+export interface CheckIn {
   userId: string;
   venueId: string;
   checkInDateTime: Date;
@@ -18,8 +18,9 @@ export interface Venue extends Base {
   name: string;
   owner: string;
   zipCode: string;
-  openingHours: OpeningTime[];
-  checksIns: {
-    [dateAsYYYYMMDD: string]: ChecksIn[];
+  Address?: string;
+  workingHours: OpeningTime[];
+  checkIns: {
+    [dateAsYYYYMMDD: string]: CheckIn[];
   };
 }

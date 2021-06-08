@@ -1,76 +1,99 @@
-  <mat-horizontal-stepper [linear]="false" #stepper>
-
-    <mat-step [stepControl]="firstFormGroup" label="Informational">
-        <p>By adding a venue you will be able to track the amount of visitors your venue gets and meet your COVID requirements</p>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-    </mat-step>
-
-    <mat-step [stepControl]="secondFormGroup" label="Name">
-      <form [formGroup]="secondFormGroup">
-        <mat-form-field>
-          <mat-label>Name of the venue</mat-label>
-          <input formControlName="venueName" matInput placeholder="E.x Peter's Barbershop" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-
-    <mat-step [stepControl]="thirdFormGroup" label="Address">
-      <form [formGroup]="thirdFormGroup">
-        <mat-form-field>
-          <mat-label>Address of the venue</mat-label>
-          <input matInput formControlName="venueAddress" placeholder="Ex. 1 Main St, New York, NY" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-
-    <mat-step [stepControl]="forthFormGroup" label="Working Hours">
-      <form [formGroup]="forthFormGroup">
-        <mat-form-field>
-          <mat-label>WorkingHours</mat-label>
-          <div>
-              <input matInput type="time-local" formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart"> 
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-              <input matInput formControlName="workingHoursMondayStart">
-          </div>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    
-    <mat-step [stepControl]="fifthFormGroup" label="Overview">
-        <form [formGroup]="fifthFormGroup">
+<ng-container>
+    <mat-horizontal-stepper linear #stepper>
+      <mat-step [stepControl]="firstFormGroup" [editable]="true">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Add your venue's name</ng-template>
           <mat-form-field>
-            <input matInput formControlName="venueOverview" placeholder="Ex. 1 Main St, New York, NY" required>
+            <mat-label>Name of the venue</mat-label>
+            <input matInput placeholder="Ex. Matt's Gym" formControlName="venueName" >
+            <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="venueAddress">
           </mat-form-field>
           <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperNext (click)="addFirstFormGroup()">Next</button>
           </div>
         </form>
       </mat-step>
-
-  </mat-horizontal-stepper>
-  
+      <mat-step [stepControl]="secondFormGroup" [editable]="true">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <mat-form-field>
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="venueAddress">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext (click)="addSecondFormGroup()">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup" [editable]="true">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Fill out the working hours of your venue</ng-template>
+            <mat-label>Address</mat-label>
+            <div class="workingHoursForm">
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart"> 
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput formControlName="workingHoursMondayStart">
+              </mat-form-field>
+            </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext (click)="addThirdFormGroup()">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Overview</ng-template>
+        <p>Please make sure everything is correct</p>
+        <form [formGroup]="forthFormGroup">
+          <ng-container formArrayName="array">
+            <div *ngFor="let item of array.controls; index as i">
+              <input [formControlName]="i">
+            </div>
+          </ng-container>
+        </form>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </ng-container>   

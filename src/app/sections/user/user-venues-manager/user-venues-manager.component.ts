@@ -28,8 +28,8 @@ export class UserVenuesManagerComponent {
       name: null,
       owner: this._authService.getUser().email,
       zipCode: null,
-      checksIns: {},
-      openingHours: [],
+      checkIns: {},
+      workingHours: [],
       createdTime: new Date(),
     };
     return this.createVenueForm(venue);

@@ -12,12 +12,14 @@ import { ReactiveFormsModule } from '@angular/forms'; // Had to import this one 
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
 
 import { GooglePlacesService } from './services/google-places.service';
 
 @NgModule({
   declarations: [AppComponent, LandingPageComponent, AddNewVenueComponent, SearchForOrAddAVenueComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule, ReactiveFormsModule, MatStepperModule, MatFormFieldModule, MatInputModule ],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule, ReactiveFormsModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatCardModule, FormsModule],
   providers: [GooglePlacesService],
   bootstrap: [AppComponent],
 })
