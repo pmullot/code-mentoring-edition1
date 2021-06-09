@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { Venue } from '../../core/models/venue.model';
 @Component({
   selector: 'app-add-new-venue',
@@ -13,70 +14,196 @@ export class AddNewVenueComponent {
   zipCode: Venue['zipCode'];
   workingHours: Venue['workingHours'];
 
-  constructor(public _formBuilder: FormBuilder) {}
-
-  array = new FormArray([]);
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
-  workingHoursArray = new FormArray([]);
-  forthFormGroup: FormGroup;
-
-  addFirstFormGroup() {
-    this.array.push(new FormControl(this.firstFormGroup.controls.venueName.value));
-    this.array.push(new FormControl(this.secondFormGroup.controls.venueAddress.value));
+  
+  constructor(public _formBuilder: FormBuilder, private _changeDetectionRef: ChangeDetectorRef) {}
+  form = new FormGroup({});
+  model: any = {};
+  options: FormlyFormOptions = {};
+  
+  fields: FormlyFieldConfig[] = [{
+    type: 'stepper',
+    fieldGroup: [
+      {
+        templateOptions: { label: 'Venue Name' },
+        fieldGroup: [
+          {
+            key: 'venueName',
+            type: 'input',
+            templateOptions: {
+              label: 'name',
+              required: true,
+            },
+          },
+        ],
+      },
+      {
+        templateOptions: { label: 'Venue Address' },
+        fieldGroup: [
+          {
+            key: 'venueAddress',
+            type: 'input',
+            templateOptions: {
+              label: 'address',
+              required: true,
+            },
+          },
+        ],
+      },
+      {
+        templateOptions: { label: 'working Hours' },
+        fieldGroup: [
+          {
+            key: 'WorkingHoursMondayStart',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursMondayEnd',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursTuesdayStart',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursTuesdayEnd',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursWednesdayStart',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursWednesdayEnd',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursThursdayStart',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursThursdayEnd',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursFridayStart',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursFridayEnd',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursSaturdayStart',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursSaturdayEnd',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursSundayStart',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+          {
+            key: 'WorkingHoursSundayEnd',
+            type: 'input',
+            templateOptions: {
+              type: 'time',
+              label: 'time',
+              required: true,
+            },
+          },
+        ],
+      },
+      {
+        templateOptions: { label: 'Overview' },
+        fieldGroup: [
+          {
+            key: 'venueOverview',
+            type: 'input',
+            templateOptions: {
+              label: '',
+              required: true,
+            },
+          },
+        ],
+      },
+    ],
+  }];
+  submit() {
+    alert(JSON.stringify(this.model));
+    console.log(this.model.venueName)
   }
 
-  addSecondFormGroup() {
-    this.array.push(new FormControl(this.secondFormGroup.controls.venueAddress.value));
+  onModelChange(){
+    console.log('model Changed!');
+    this.model.venueOverview = this.model.venueName;
+    this._changeDetectionRef.detectChanges();
   }
-
-  addThirdFormGroup() {
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursMondayStart.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursMondayEnd.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursTuesdayStart.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursTuesdayEnd.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursWednesdayStart.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursWednesdayEnd.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursThursdayStart.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursThursdayEnd.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursFridayStart.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursFridayEnd.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursSaturdayStart.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursSaturdayEnd.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursSundayStart.value));
-    this.array.push(new FormControl(this.thirdFormGroup.controls.workingHoursSundayEnd.value));
-    
-    console.log(this.thirdFormGroup.controls.workingHoursMondayEnd)
-  }
-
-
-  ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      venueName: [''],
-      venueAddress: ['']
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      venueAddress: [''],
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      workingHoursMondayStart: [''],
-      workingHoursMondayEnd: [''],
-      workingHoursTuesdayStart: [''],
-      workingHoursTuesdayEnd: [''],
-      workingHoursWednesdayStart: [''],
-      workingHoursWednesdayEnd: [''],
-      workingHoursThursdayStart: [''],
-      workingHoursThursdayEnd: [''],
-      workingHoursFridayStart: [''],
-      workingHoursFridayEnd: [''],
-      workingHoursSaturdayStart: [''],
-      workingHoursSaturdayEnd: [''],
-      workingHoursSundayStart: [''],
-      workingHoursSundayEnd: [''],
-    });
-    this.forthFormGroup = this._formBuilder.group({
-      array: this.array,
-    });
-  }
+  
 }
