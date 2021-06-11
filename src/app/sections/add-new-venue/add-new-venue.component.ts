@@ -53,143 +53,347 @@ export class AddNewVenueComponent {
         templateOptions: { label: 'working Hours' },
         fieldGroup: [
           {
-            key: 'WorkingHoursMondayStart',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
+            key: 'WorkingHoursMonday',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
           },
           {
-            key: 'WorkingHoursMondayEnd',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
+            key: 'WorkingHoursTuesday',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
           },
           {
-            key: 'WorkingHoursTuesdayStart',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
+            key: 'WorkingHoursWednesday',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
           },
           {
-            key: 'WorkingHoursTuesdayEnd',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
+            key: 'WorkingHoursThursday',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
           },
           {
-            key: 'WorkingHoursWednesdayStart',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
+            key: 'WorkingHoursFriday',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
           },
           {
-            key: 'WorkingHoursWednesdayEnd',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
+            key: 'WorkingHoursSaturday',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
           },
           {
-            key: 'WorkingHoursThursdayStart',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
-          },
-          {
-            key: 'WorkingHoursThursdayEnd',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
-          },
-          {
-            key: 'WorkingHoursFridayStart',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
-          },
-          {
-            key: 'WorkingHoursFridayEnd',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
-          },
-          {
-            key: 'WorkingHoursSaturdayStart',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
-          },
-          {
-            key: 'WorkingHoursSaturdayEnd',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
-          },
-          {
-            key: 'WorkingHoursSundayStart',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
-          },
-          {
-            key: 'WorkingHoursSundayEnd',
-            type: 'input',
-            templateOptions: {
-              type: 'time',
-              label: 'time',
-              required: true,
-            },
+            key: 'WorkingHoursSunday',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
           },
         ],
-      },
+      }, // Overview Step
       {
         templateOptions: { label: 'Overview' },
         fieldGroup: [
           {
-            key: 'venueOverview',
+            key: 'venueNameOverview',
             type: 'input',
             templateOptions: {
-              label: '',
+              label: 'Name',
               required: true,
             },
+          },
+          {
+            key: 'venueAddressOverview',
+            type: 'input',
+            templateOptions: {
+              label: 'Address',
+              required: true,
+            }
+          },
+          {
+            key: 'WorkingHoursMondayOverview',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
+          },
+          {
+            key: 'WorkingHoursTuesdayOverview',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
+          },
+          {
+            key: 'WorkingHoursWednesdayOverview',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
+          },
+          {
+            key: 'WorkingHoursThursdayOverview',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
+          },
+          {
+            key: 'WorkingHoursFridayOverview',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
+          },
+          {
+            key: 'WorkingHoursSaturdayOverview',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
+          },
+          {
+            key: 'WorkingHoursSundayOverview',
+            fieldGroup:[
+              {
+                key: 'opensAt',
+                type: 'input',
+                templateOptions:{
+                  type: 'time',
+                  label: 'Opening Time',
+                  required: true
+                }
+              },
+              {
+                key: 'closesAt',
+                type: 'input',
+                 templateOptions:{
+                  type: 'time',
+                  label: 'Closing Time',
+                  required: true
+                }
+              }
+            ],       
           },
         ],
       },
@@ -202,8 +406,12 @@ export class AddNewVenueComponent {
 
   onModelChange(){
     console.log('model Changed!');
-    this.model.venueOverview = this.model.venueName;
-    this._changeDetectionRef.detectChanges();
+    this.model = {
+      ...this.model,
+      venueNameOverView: this.venueName,
+      venueAddressOverview: this.venueAddress,
+    };
+    console.log(this.model.workingHoursMonday.opensAt);
   }
   
 }
